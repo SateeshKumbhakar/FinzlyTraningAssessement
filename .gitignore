@@ -1,0 +1,21 @@
+HELP.md
+target/
+
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# Logs and temporary files
+/logs/
+/tmp/
+*.log
+
+# Application properties with sensitive information (keep out of the repo)
+/src/main/resources/application.properties
+
