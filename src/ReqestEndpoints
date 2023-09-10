@@ -1,0 +1,23 @@
+create trade
+http://localhost:8080/api/v1/create-trade
+
+book trade
+http://localhost:8080/api/v1/book-trade/103
+
+Get all trades
+http://localhost:8080/api/v1/get-all-trades
+
+
+get one trade by id
+http://localhost:8080/api/v1/trades/106
+
+
+// cancel trade by id
+http://localhost:8080/api/v1/cancel-trade/102
+
+Update Trade
+http://localhost:8080/api/v1/update-trade/102
+
+
+Delete all unbooked trade data
+http://localhost:8080/api/v1/delete-unbooked-trades
