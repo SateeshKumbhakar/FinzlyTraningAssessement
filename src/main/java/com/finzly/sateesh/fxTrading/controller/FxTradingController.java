@@ -30,8 +30,7 @@ public class FxTradingController {
 
 		List<FxTrade> list = fxTradingServices.getAllTrades();
 
-		if (list.isEmpty()) {
-			System.out.println("inside if....");
+		if ( list.isEmpty() ) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body(" No Trade is found.Please Book trade first.Thank you..!");
 		} else {
@@ -44,11 +43,12 @@ public class FxTradingController {
 	public ResponseEntity<Object> createFxTrade(@RequestBody FxTrade fxTrade) {
 		boolean isValidTrade = UtiliyClass.isValidTrade(fxTrade);
 
-		if (!isValidTrade)
-			return ResponseEntity.badRequest().body("Please Enter Valid details(CustomerName/TradeId/currency Pair)");
+		if ( !isValidTrade )
+			return ResponseEntity.badRequest()
+				.body("Please Enter Valid details(CustomerName/TradeId/currency Pair)");
 
 		FxTrade createdFxTrade = fxTradingServices.createFxtTrade(fxTrade);
-		if (createdFxTrade == null) {
+		if ( createdFxTrade == null )  {
 			return ResponseEntity.status(HttpStatus.FOUND)
 					.body("Can't create Trade with given tradeId. Trade is found...");
 		}
@@ -61,8 +61,9 @@ public class FxTradingController {
 	public ResponseEntity<Object> updateTradeById(@PathVariable int tradeId,@RequestBody FxTrade fxTrade ) {
 
 		FxTrade trade = fxTradingServices.updateTradeById(tradeId,fxTrade);
-		if (trade == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Trade Found with this " + tradeId);
+		if ( trade == null )  {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+				.body("No Trade Found with this " + tradeId);
 		} else
 			return ResponseEntity.ok(trade);
 	}
@@ -72,8 +73,9 @@ public class FxTradingController {
 	public ResponseEntity<Object> getTradeById(@PathVariable int tradeId) {
 
 		FxTrade trade = fxTradingServices.getTradeById(tradeId);
-		if (trade == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Trade Found with this " + tradeId);
+		if ( trade == null ) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+				.body("No Trade Found with this " + tradeId);
 		} else {
 			return ResponseEntity.ok(trade);
 		}
@@ -84,8 +86,9 @@ public class FxTradingController {
 	public ResponseEntity<Object> bookTradeById(@PathVariable int tradeId) {
 
 		FxTrade trade = fxTradingServices.bookTradeById(tradeId);
-		if (trade == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Trade Found with this " + tradeId);
+		if ( trade == null ) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+				.body("No Trade Found with this " + tradeId);
 		} else {
 			return ResponseEntity.ok(trade);
 		}
@@ -96,10 +99,10 @@ public class FxTradingController {
 	public ResponseEntity<Object> cancelTradeById(@PathVariable int tradeId) {
 		FxTrade trade = fxTradingServices.cancelTradeById(tradeId);
 
-		if (trade == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Trade Found with this " + tradeId);
+		if ( trade == null ) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+				.body("No Trade Found with this " + tradeId);
 		} else if (trade.isBooked()) {
-
 			return ResponseEntity.status(HttpStatus.FOUND)
 					.body("Trade is booked with tradeId " + tradeId + "You Cann't delete a trade after booking");
 		} else {
