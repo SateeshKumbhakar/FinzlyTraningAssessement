@@ -19,21 +19,18 @@ public class FxTradingServices {
 	// Get All Trades from here
 	public List<FxTrade> getAllTrades() {
 		List<FxTrade> list = fxTradeRepository.findAll();
-//		System.out.println("get all trade in service" + list);
 		return list;
 	}
 
 	// Create Trade Here
 	public FxTrade createFxtTrade(FxTrade fxTrade) {
         
-		if (getTradeById(fxTrade.gettradeId()) != null) {
+		if ( getTradeById( fxTrade.gettradeId() ) != null ) {
 			return null;
-		} else {
-			
+		} else {	
 			fxTrade.setBooked(false); // Don't want book trade while creation of trade
 			double amount = fxTrade.getAmount();
 			float rate = fxTrade.getRate();
-			
 			fxTrade.setTotalAmt(rate * amount);
 
 			return fxTradeRepository.save(fxTrade);
@@ -42,25 +39,23 @@ public class FxTradingServices {
 
 	// Get a Trade using tradeId
 	public FxTrade getTradeById(int tradeId) {
-
 		Optional<FxTrade> trade = fxTradeRepository.findById(tradeId);
 		return trade.orElse(null);
 	}
 
 	// Book a Trade using tradeId
 	public FxTrade bookTradeById(int tradeId) {
-
 		FxTrade trade = getTradeById(tradeId);
 		if (trade != null) {
 			trade.setBooked(true);
 			fxTradeRepository.save(trade);
 			return trade;
-		} else
+		} else{
 			return null;
-
+		}
 	}
 
-	// Get a Trade using tradeId if its not booked yet.
+	// Get a Trade using tradeId if it's not booked yet.
 	public FxTrade cancelTradeById(int tradeId) {
 
 		FxTrade trade = getTradeById(tradeId);
@@ -92,18 +87,17 @@ public class FxTradingServices {
 			}
 			
 		}
-
 		return tempList;
 	}
 
 	public FxTrade updateTradeById(int tradeId,FxTrade fxTrade) {
-		 FxTrade trade = getTradeById(tradeId);
+		
+		FxTrade trade = getTradeById(tradeId);
 		 if(fxTrade.gettradeId() != tradeId) return null;
 		 
-		 if(trade == null)
+		 if( trade == null )
 		         return null;
-		 else {
-			 
+		 else {	 
 			 return fxTradeRepository.save(fxTrade);
 		 }
 	}
