@@ -68,7 +68,7 @@ public class FxTradingController {
 	}
 	
 
-	@GetMapping("/trades/{tradeId}")
+	@GetMapping("/get-trade/{tradeId}")
 	public ResponseEntity<Object> getTradeById(@PathVariable int tradeId) {
 
 		FxTrade trade = fxTradingServices.getTradeById(tradeId);
