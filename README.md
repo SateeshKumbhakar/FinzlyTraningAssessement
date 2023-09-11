@@ -1,6 +1,7 @@
 # FinzlyTraningAssessement
 this repository is created for pushing assessments  
 
+<img  src="https://github.com/SateeshKumbhakar/FinzlyTraningAssessement/blob/6c27d60889a5af4b256e570e777ac2b6f9d9a8f9/image/Screenshot%202023-09-11%20100709.png "> 
  1 Create trade
 http://localhost:8080/api/v1/create-trade
 
@@ -26,4 +27,3 @@ http://localhost:8080/api/v1/update-trade/102
 7 Delete all unbooked trade data
 http://localhost:8080/api/v1/delete-unbooked-trades
 
-![cvdb](/image/Screenshot 2023-09-11 100709.png)
