@@ -25,3 +25,5 @@ http://localhost:8080/api/v1/update-trade/102
 
 7 Delete all unbooked trade data
 http://localhost:8080/api/v1/delete-unbooked-trades
+
+![cvdb](/image/Screenshot 2023-09-11 100709.png)
