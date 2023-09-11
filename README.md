@@ -1,5 +1,5 @@
 # FinzlyTraningAssessement
-this repository is created for pushing assessments related stub
+this repository is created for pushing assessments  
 
  1 Create trade
 http://localhost:8080/api/v1/create-trade
