@@ -28,13 +28,13 @@ public class FxTradingController {
 	@GetMapping("/get-all-trades")
 	public ResponseEntity<Object> getAllTrades() {
 
-		List<FxTrade> list = fxTradingService.getAllTrades();
+		List<FxTrade> tradeList = fxTradingService.getAllTrades();
 
-		if (list.isEmpty()) {
+		if (tradeList.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body(" No Trade is found.Please Book trade first.Thank you..!");
 		} else {
-			return ResponseEntity.ok(list);
+			return ResponseEntity.ok(tradeList);
 		}
 
 	}
